@@ -7,7 +7,7 @@ class Books {
 	}
 
 	initBindEventListeners() {
-		this.bookscontainer = document.getElementById('books-container')
+		this.booksContainer = document.getElementById('books-container')
 	}
 
 	fetchAndLoadBooks() {
@@ -17,11 +17,12 @@ class Books {
 			books.forEach(book => this.books.push(new Book(book))) // pushing a new book instance into the array
 		})
 		.then(() => {
-			console.log(this.books)
+			this.renderBooks()
 		})
 	}
 
-	// renderBooks() {
-
-	// }
+	renderBooks() {
+		this.booksContainer.innerHTML = this.books.map(book => `<li>${book.title}</li>`).join('')
+		
+	}
 }
