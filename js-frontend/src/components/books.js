@@ -8,6 +8,8 @@ class Books {
 
 	initBindEventListeners() {
 		this.booksContainer = document.getElementById('books-container')
+		this.bookTitle = document.getElementById('new-book-title')
+		this.bookSummary = document.getElementById('new-book-summary')
 	}
 
 	fetchAndLoadBooks() {
@@ -23,5 +25,19 @@ class Books {
 
 	renderBooks() {
 		this.booksContainer.innerHTML = this.books.map(book => book.renderLi()).join('')
+	}
+
+	createBook(e) {
+		e.preventDefault()
+
+		const title = this.bookTitle.value
+		const summary = this.bookSummary.value
+
+		this.adapter.createBook(title, summary).then(book => {
+			this.books.push(new Book(book))
+			this.bookTitle.value = ''
+			this.bookSummary.value = ''
+			this.renderBooks()
+		})
 	}
 }
