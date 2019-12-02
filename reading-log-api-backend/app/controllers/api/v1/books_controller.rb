@@ -11,4 +11,12 @@ class Api::V1::BooksController < ApplicationController
     render json: @book, status: 200
   end
 
+  def create
+    @book = Book.new(book_params)
+
+    if @book.save
+      render json: @book, status: 200
+    end
+  end
+
 end
