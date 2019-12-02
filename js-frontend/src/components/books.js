@@ -10,6 +10,7 @@ class Books {
 		this.booksContainer = document.getElementById('books-container')
 		this.bookTitle = document.getElementById('new-book-title')
 		this.bookSummary = document.getElementById('new-book-summary')
+		this.bookForm.addEventListener('submit', this.createBook.bind(this)) // bind the this inside Book class
 	}
 
 	fetchAndLoadBooks() {
