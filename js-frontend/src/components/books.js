@@ -22,7 +22,6 @@ class Books {
 	}
 
 	renderBooks() {
-		this.booksContainer.innerHTML = this.books.map(book => `<li>${book.title}</li>`).join('')
-		
+		this.booksContainer.innerHTML = this.books.map(book => book.renderLi()).join('')
 	}
 }

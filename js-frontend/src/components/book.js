@@ -4,4 +4,8 @@ class Book {
 		this.title = bookJSON.title
 		this.summary = bookJSON.summary
 	}
+
+	renderLi() {
+		return `<li>${this.title}</li>`
+	}
 }
