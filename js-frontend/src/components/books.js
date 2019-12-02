@@ -2,7 +2,12 @@ class Books {
 	constructor() {
 		this.books = []
 		this.adapter = new BooksAdapter()
+		this.initBindEventListeners()
 		this.fetchAndLoadBooks()
+	}
+
+	initBindEventListeners() {
+		this.bookscontainer = document.getElementById('books-container')
 	}
 
 	fetchAndLoadBooks() {
@@ -15,4 +20,8 @@ class Books {
 			console.log(this.books)
 		})
 	}
+
+	// renderBooks() {
+
+	// }
 }
