@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Book.create(:title => "Blowout", :summary => "Connecting the geo politics of oil and gas to some of the obscure relationships and behavior of our politicians")
+Book.create(:title => "Range", :summary => "Explores the question of whether or not early specialization actually needs to more innovation and successful individuals")
