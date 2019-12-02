@@ -5,7 +5,7 @@ class Book {
 		this.summary = bookJSON.summary
 	}
 
-	renderLi() {
-		return `<li>${this.title}</li>`
+	renderCheckbox() {
+		return `<input type="checkbox" name="book-${this.id}">${this.title}<br>`
 	}
 }

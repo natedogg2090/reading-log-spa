@@ -26,7 +26,15 @@ class Books {
 	}
 
 	renderBooks() {
-		this.booksContainer.innerHTML = this.books.map(book => book.renderLi()).join('')
+		this.booksContainer.innerHTML = this.books.map(book => book.renderCheckbox()).join('')
+
+		this.applyCheckboxListener()
+	}
+
+	applyCheckboxListener() {
+		const checkboxArray = document.querySelectorAll('[type="checkbox"]')
+
+		checkboxArray.forEach(book => book.addEventListener('click', this.bookCompleted.bind(this)))
 	}
 
 	createBook(e) {
@@ -41,5 +49,9 @@ class Books {
 			this.bookSummary.value = ''
 			this.renderBooks()
 		})
+	}
+
+	bookCompleted() {
+		console.log("book checked...")
 	}
 }
