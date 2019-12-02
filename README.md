@@ -1,0 +1,1 @@
+This is a single page application with a rails api backend and JS frontend to log books that are either being read or will be read in the future.
