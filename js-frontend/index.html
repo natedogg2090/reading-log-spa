@@ -9,10 +9,23 @@
 		<form id="new-book-form">
 			<input type="text" name="book-title" id="new-book-title" placeholder="Book Title"><br>
 			<input type="text" name="book-summary" id="new-book-summary" placeholder="Book Summary"><br>
+			<input type="text" name="book-author" id="new-book-author" placeholder="Author Name"><br>
+			<input type="text" name="book-genre" id="new-book-genre" placeholder="Genre">
+			<br>
+			<br>
 			<input type="submit" name="create-book" value="Add Book">
 			
 		</form>
+		<br>
+		<hr>
+	    <label for="select-filter-criteria">Filter By:</label>
+	    <select id="filter-dropdown" name="select-criteria">
+	      <option value="blank">-</option>
+	      <option value="author">Author</option>
+	      <option value="genre">Genre</option>
+	    </select>
 		<div id="books-container">
+
 
 		</div>
 	</div>
