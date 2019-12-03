@@ -4,6 +4,7 @@ class Books {
 		this.adapter = new BooksAdapter()
 		this.initBindEventListeners()
 		this.fetchAndLoadBooks()
+		this.authors = new Authors()
 	}
 
 	initBindEventListeners() {
@@ -13,7 +14,7 @@ class Books {
 		this.bookForm = document.getElementById('new-book-form')
 		this.bookForm.addEventListener('submit', this.createBook.bind(this)) // bind the this inside Book class
 		this.filterDropdown = document.querySelector('#filter-dropdown')
-		this.filterDropdown.addEventListener('change', this.filterList)
+		this.filterDropdown.addEventListener('change', this.filterList.bind(this))
 	}
 
 	fetchAndLoadBooks() {
@@ -78,16 +79,18 @@ class Books {
 	// }
 
 	filterList(e) {
-		// console.log(e.target.value)
+
 		let selectFilter = e.target.value
 
 		if (selectFilter === "author") {
-			console.log("you should see a filtered list of authors")
+
+			this.authors.renderAuthors()
+
 		} else if (selectFilter === "genre") {
 			console.log("you should see a filtered list of genres")
-		} else {
-			console.log("alphabetically sort all books")
-			console.log(this.books)
+		} else if (selectFilter === "blank") {
+			
+			this.renderBooks()
 		}
 	}
 }
