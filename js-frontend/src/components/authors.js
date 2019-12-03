@@ -9,12 +9,13 @@ class Authors {
 		this.adapter
 		.getAuthors()
 		.then(authors => {
-			authors.forEach(author => this.authors.push(new Author(author))) // pushing a new book instance into the array
+			authors.forEach(author => this.authors.push(new Author(author)))
 		})
-		.then(() => {
-			// this.sortBooks()
-			// this.renderBooks()
-			console.log(this.authors)
-		})
+	}
+
+	renderAuthors() {
+		let booksContainer = document.getElementById('books-container')
+
+		booksContainer.innerHTML = this.authors.map(author => `<li>${author.name}</li>`).join('')
 	}
 }
