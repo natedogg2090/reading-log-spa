@@ -23,12 +23,12 @@ class Books {
 			books.forEach(book => this.books.push(new Book(book))) // pushing a new book instance into the array
 		})
 		.then(() => {
+			this.sortBooks()
 			this.renderBooks()
 		})
 	}
 
-	renderBooks() {
-
+	sortBooks() {
 		let sortedBooksArray = this.books.sort( (a, b) => {
 			const titleA = a.title
 			const titleB = b.title
@@ -42,8 +42,11 @@ class Books {
 			}
 
 			return comp
-		})
 
+		})		
+	}
+
+	renderBooks() {
 		this.booksContainer.innerHTML = this.books.map(book => book.renderCheckbox()).join('')
 
 		// this.applyCheckboxListener()
