@@ -12,6 +12,8 @@ class Books {
 		this.bookSummary = document.getElementById('new-book-summary')
 		this.bookForm = document.getElementById('new-book-form')
 		this.bookForm.addEventListener('submit', this.createBook.bind(this)) // bind the this inside Book class
+		this.filterDropdown = document.querySelector('#filter-dropdown')
+		this.filterDropdown.addEventListener('change', this.filterList)
 	}
 
 	fetchAndLoadBooks() {
@@ -26,16 +28,32 @@ class Books {
 	}
 
 	renderBooks() {
+
+		let sortedBooksArray = this.books.sort( (a, b) => {
+			const titleA = a.title
+			const titleB = b.title
+
+			let comp = 0
+
+			if (titleA > titleB) {
+				comp = 1
+			} else if (titleA < titleB) {
+				comp = -1
+			}
+
+			return comp
+		})
+
 		this.booksContainer.innerHTML = this.books.map(book => book.renderCheckbox()).join('')
 
-		this.applyCheckboxListener()
+		// this.applyCheckboxListener()
 	}
 
-	applyCheckboxListener() {
-		const checkboxArray = document.querySelectorAll('[type="checkbox"]')
+	// applyCheckboxListener() {
+	// 	const checkboxArray = document.querySelectorAll('[type="checkbox"]')
 
-		checkboxArray.forEach(book => book.addEventListener('click', this.bookCompleted.bind(this)))
-	}
+	// 	checkboxArray.forEach(book => book.addEventListener('click', this.bookCompleted.bind(this)))
+	// }
 
 	createBook(e) {
 		e.preventDefault()
@@ -51,7 +69,22 @@ class Books {
 		})
 	}
 
-	bookCompleted() {
-		console.log("book checked...")
+	// bookCompleted() {
+	// 	const checkedInput = document.querySelector(`[name="book-${this.id}"]`)
+	// 	console.log(this)
+	// }
+
+	filterList(e) {
+		// console.log(e.target.value)
+		let selectFilter = e.target.value
+
+		if (selectFilter === "author") {
+			console.log("you should see a filtered list of authors")
+		} else if (selectFilter === "genre") {
+			console.log("you should see a filtered list of genres")
+		} else {
+			console.log("alphabetically sort all books")
+			console.log(this.books)
+		}
 	}
 }

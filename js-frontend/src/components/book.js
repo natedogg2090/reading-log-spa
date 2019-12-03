@@ -6,6 +6,6 @@ class Book {
 	}
 
 	renderCheckbox() {
-		return `<input type="checkbox" name="book-${this.id}">${this.title}<br>`
+		return `<input type="checkbox" name="book-${this.id}" value="false">${this.title}<br>`
 	}
 }
