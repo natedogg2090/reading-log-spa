@@ -8,7 +8,10 @@ class Book {
 	renderBook() {
 		// return `<input type="checkbox" name="book-${this.id}" value="false">${this.title}<br>`
 		let div = document.createElement('div')
-		div.setAttribute('class', 'content')
+		div.setAttribute('class', 'single-book')
+
+		let internalDiv = document.createElement('div')
+		internalDiv.setAttribute('class', 'content')
 
 		let header = document.createElement('h3')
 		header.innerHTML = `${this.title}`
@@ -16,8 +19,10 @@ class Book {
 		let p = document.createElement('p')
 		p.innerHTML = `${this.summary}`
 
-		div.appendChild(header)
-		div.appendChild(p)
+		internalDiv.appendChild(header)
+		internalDiv.appendChild(p)
+
+		div.appendChild(internalDiv)
 
 		return div
 		// return `<h3>${this.title}</h3>`
