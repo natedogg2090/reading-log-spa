@@ -12,11 +12,12 @@ class Api::V1::BooksController < ApplicationController
   end
 
   def create
-    binding.pry
     @book = Book.new(book_params)
+    @author = Author.find_or_create_by(:name => params[:author][:name])
+    @genre = Genre.find_or_create_by(:name => params[:genre][:name])
 
-    # author.find_or_create_by || first_or_create_by
-    # genre.find_or_create_by
+    @book.author_id = @author.id
+    @book.genre_id = @genre.id
 
     if @book.save
       render json: @book, status: 200
@@ -26,7 +27,7 @@ class Api::V1::BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :summary)
+    params.require(:book).permit(:title, :summary, :author_id, :genre_id)
   end
 
 end
