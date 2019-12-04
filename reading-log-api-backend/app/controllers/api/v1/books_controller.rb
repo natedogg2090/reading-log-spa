@@ -1,8 +1,8 @@
 class Api::V1::BooksController < ApplicationController
   def index
-    @books = Book.all
+    books = Book.all
 
-    render json: @books, include: [:author], status: 200
+    render json: BookSerializer.new(books).serialized_json, status: 200
   end
 
   def show
