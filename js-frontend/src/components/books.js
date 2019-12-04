@@ -32,6 +32,30 @@ class Books {
 	}
 
 	sortBooks() {
+
+		// function compareValues(key, order = 'asc') {
+		// 	return function innerSort(a, b) {
+	 //    		if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+	 //      			return 0;
+	 //      		}
+
+		// 	    const varA = (typeof a[key] === 'string')
+		// 	      ? a[key].toUpperCase() : a[key];
+		// 	    const varB = (typeof b[key] === 'string')
+		// 	      ? b[key].toUpperCase() : b[key];
+
+		// 	    let comparison = 0;
+			
+		// 	    if (varA > varB) {
+		// 	      comparison = 1;
+		// 	    } else if (varA < varB) {
+		// 	      comparison = -1;
+		// 	    }
+		// 	    return (
+		// 	      (order === 'desc') ? (comparison * -1) : comparison
+		// 	    );
+		// 	};
+		// }
 		this.books.sort( (a, b) => {
 			const titleA = a.title
 			const titleB = b.title
@@ -52,14 +76,7 @@ class Books {
 	renderBooks() {
 		this.books.map(book => this.booksContainer.appendChild(book.renderBook()))
 
-		// this.applyCheckboxListener()
 	}
-
-	// applyCheckboxListener() {
-	// 	const checkboxArray = document.querySelectorAll('[type="checkbox"]')
-
-	// 	checkboxArray.forEach(book => book.addEventListener('click', this.bookCompleted.bind(this)))
-	// }
 
 	createBook(e) {
 		e.preventDefault()
@@ -79,23 +96,15 @@ class Books {
 		})
 	}
 
-	// bookCompleted() {
-	// 	const checkedInput = document.querySelector(`[name="book-${this.id}"]`)
-	// 	console.log(this)
-	// }
-
 	filterList(e) {
 
 		let selectFilter = e.target.value
 
 		if (selectFilter === "author") {
-
 			this.authors.renderAuthors()
-
 		} else if (selectFilter === "genre") {
-			console.log("you should see a filtered list of genres")
+					
 		} else if (selectFilter === "blank") {
-			
 			this.renderBooks()
 		}
 	}
