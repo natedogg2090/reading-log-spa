@@ -2,7 +2,7 @@ class Api::V1::BooksController < ApplicationController
   def index
     @books = Book.all
 
-    render json: @books, status: 200
+    render json: @books, include: [:author], status: 200
   end
 
   def show
@@ -12,7 +12,11 @@ class Api::V1::BooksController < ApplicationController
   end
 
   def create
+    binding.pry
     @book = Book.new(book_params)
+
+    # author.find_or_create_by || first_or_create_by
+    # genre.find_or_create_by
 
     if @book.save
       render json: @book, status: 200
