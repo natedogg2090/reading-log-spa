@@ -74,6 +74,8 @@ class Books {
 	}
 
 	renderBooks() {
+		this.booksContainer.innerHTML = ''
+
 		this.books.map(book => this.booksContainer.appendChild(book.renderBook()))
 
 	}
