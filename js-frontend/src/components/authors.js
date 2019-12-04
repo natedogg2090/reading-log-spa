@@ -17,7 +17,6 @@ class Authors {
 	}
 
 	sortAuthors() {
-		// console.log('sorting authors')
 		this.authors.sort( (a, b) => {
 			const nameA = a.name
 			const nameB = b.name
@@ -33,7 +32,13 @@ class Authors {
 			return comp
 
 		})
-		console.log(this.authors)
+	}
+
+	renderAuthors() {
+		let booksContainer = document.getElementById('books-container')
+		booksContainer.innerHTML = ''
+
+		this.authors.map(author => booksContainer.appendChild(author.renderAuthor()))
 	}
 
 }
