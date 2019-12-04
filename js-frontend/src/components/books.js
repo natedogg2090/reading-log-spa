@@ -30,7 +30,7 @@ class Books {
 	}
 
 	sortBooks() {
-		let sortedBooksArray = this.books.sort( (a, b) => {
+		this.books.sort( (a, b) => {
 			const titleA = a.title
 			const titleB = b.title
 
