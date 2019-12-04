@@ -13,7 +13,11 @@ class Book {
 		let header = document.createElement('h3')
 		header.innerHTML = `${this.title}`
 
+		let p = document.createElement('p')
+		p.innerHTML = `${this.summary}`
+
 		div.appendChild(header)
+		div.appendChild(p)
 
 		return div
 		// return `<h3>${this.title}</h3>`
