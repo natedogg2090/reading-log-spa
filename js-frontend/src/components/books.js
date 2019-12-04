@@ -106,7 +106,7 @@ class Books {
 			this.authors.renderAuthors()
 		} else if (selectFilter === "genre") {
 					
-		} else if (selectFilter === "blank") {
+		} else if (selectFilter === "books") {
 			this.renderBooks()
 		}
 	}
