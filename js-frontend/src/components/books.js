@@ -11,6 +11,8 @@ class Books {
 		this.booksContainer = document.getElementById('books-container')
 		this.bookTitle = document.getElementById('new-book-title')
 		this.bookSummary = document.getElementById('new-book-summary')
+		this.bookAuthor = document.getElementById('new-book-author')
+		this.bookGenre = document.getElementById('new-book-genre')
 		this.bookForm = document.getElementById('new-book-form')
 		this.bookForm.addEventListener('submit', this.createBook.bind(this)) // bind the this inside Book class
 		this.filterDropdown = document.querySelector('#filter-dropdown')
@@ -64,11 +66,15 @@ class Books {
 
 		const title = this.bookTitle.value
 		const summary = this.bookSummary.value
+		const name = this.bookAuthor.value
+		const genreName = this.bookGenre.value
 
-		this.adapter.createBook(title, summary).then(book => {
+		this.adapter.createBook(title, summary, name, genreName).then(book => {
 			this.books.push(new Book(book))
 			this.bookTitle.value = ''
 			this.bookSummary.value = ''
+			this.bookAuthor.value = ''
+			this.bookGenre.value = ''
 			this.renderBooks()
 		})
 	}
