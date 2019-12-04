@@ -11,34 +11,29 @@ class Authors {
 		.then(authors => {
 			authors.forEach(author => this.authors.push(new Author(author)))
 		})
+		.then(() => {
+			this.sortAuthors()
+		})
 	}
 
-	renderAuthors() {
-		// let booksContainer = document.getElementById('books-container')
+	sortAuthors() {
+		// console.log('sorting authors')
+		this.authors.sort( (a, b) => {
+			const nameA = a.name
+			const nameB = b.name
 
-		// booksContainer.innerHTML = this.authors.map(author => `<li>${author.name}</li>`).join('')
+			let comp = 0
 
-		let div = document.createElement('div')
-		div.setAttribute('class', 'single-author')
+			if (nameA > nameB) {
+				comp = 1
+			} else if (nameA < nameB) {
+				comp = -1
+			}
 
-		let content = document.createElement('div')
-		content.setAttribute('class', 'content')
+			return comp
 
-		let header = document.createElement('h3')
-		header.innerHTML = `${this.name}`
-
-		let bookName = document.createElement('h4')
-		bookName.innerHTML = `${this.book.title}`
-
-		let p = document.createElement('p')
-		p.innerHTML = `${this.book.summary}`
-
-		content.appendChild(header)
-		content.appendChild(p)
-		content.appendChild(bookName)
-
-		div.appendChild(content)
-
-		return div
+		})
+		console.log(this.authors)
 	}
+
 }
