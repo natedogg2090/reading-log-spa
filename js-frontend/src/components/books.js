@@ -48,7 +48,7 @@ class Books {
 	}
 
 	renderBooks() {
-		this.booksContainer.innerHTML = this.books.map(book => book.renderCheckbox()).join('')
+		this.books.map(book => this.booksContainer.appendChild(book.renderBook()))
 
 		// this.applyCheckboxListener()
 	}
