@@ -9,7 +9,7 @@ class Authors {
 		this.adapter
 		.getAuthors()
 		.then(authors => {
-			authors.forEach(author => this.authors.push(new Author(author)))
+			authors.data.forEach(author => this.authors.push(new Author(author)))
 		})
 		.then(() => {
 			this.sortAuthors()
