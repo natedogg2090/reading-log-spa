@@ -24,8 +24,8 @@ class Book {
 		p.innerHTML = `${this.summary}`
 
 		content.appendChild(header)
-		content.appendChild(p)
 		content.appendChild(authorName)
+		content.appendChild(p)
 
 		div.appendChild(content)
 
