@@ -23,7 +23,7 @@ class Books {
 		this.adapter
 		.getBooks()
 		.then(books => {
-			books.forEach(book => this.books.push(new Book(book))) // pushing a new book instance into the array
+			books.data.forEach(book => this.books.push(new Book(book))) // pushing a new book instance into the array
 		})
 		.then(() => {
 			this.sortBooks()
