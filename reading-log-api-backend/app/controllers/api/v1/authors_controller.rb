@@ -1,7 +1,7 @@
 class Api::V1::AuthorsController < ApplicationController
   def index
-    @authors = Author.all
+    authors = Author.all
 
-    render json: @authors, include: [:books], status: 200
+    render json: AuthorSerializer.new(authors), status: 200
   end
 end
