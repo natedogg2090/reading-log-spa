@@ -1,9 +1,9 @@
 class Author {
 	constructor(authorJSON) {
 		this.id = authorJSON.id
-		this.name = authorJSON.name
-		this.bookTitle = authorJSON.books[0].title
-		this.bookSummary = authorJSON.books[0].summary
+		this.name = authorJSON.attributes.name
+		this.bookTitle = authorJSON.attributes.books[0].title
+		this.bookSummary = authorJSON.attributes.books[0].summary
 	}
 
 	renderAuthor() {
