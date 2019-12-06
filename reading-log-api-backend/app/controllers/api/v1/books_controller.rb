@@ -12,15 +12,16 @@ class Api::V1::BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
-    @author = Author.find_or_create_by(:name => params[:author][:name])
-    @genre = Genre.find_or_create_by(:name => params[:genre][:name])
+    # binding.pry
+    book = Book.new(book_params)
+    author = Author.find_or_create_by(:name => params[:author][:name])
+    genre = Genre.find_or_create_by(:name => params[:genre][:name])
 
-    @book.author_id = @author.id
-    @book.genre_id = @genre.id
+    book.author_id = author.id
+    # @book.genre_id = @genre.id
 
-    if @book.save
-      render json: @book, status: 200
+    if book.save
+      render json: BookSerializer.new(book).serialized_json, status: 200
     end
   end
 
