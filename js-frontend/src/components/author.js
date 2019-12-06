@@ -2,8 +2,8 @@ class Author {
 	constructor(authorJSON) {
 		this.id = authorJSON.id
 		this.name = authorJSON.attributes.name
-		this.bookTitle = authorJSON.attributes.books[0].title
-		this.bookSummary = authorJSON.attributes.books[0].summary
+		this.booksArray = authorJSON.attributes.books //will return an array of books.
+		// this.bookSummary = authorJSON.attributes.books[0].summary
 	}
 
 	renderAuthor() {
@@ -17,15 +17,20 @@ class Author {
 		let header = document.createElement('h3')
 		header.innerHTML = `${this.name}`
 
-		let bookName = document.createElement('h4')
-		bookName.innerHTML = `${this.bookTitle}`
-
-		let p = document.createElement('p')
-		p.innerHTML = `${this.bookSummary}`
-
 		content.appendChild(header)
-		content.appendChild(bookName)
-		content.appendChild(p)
+
+		this.booksArray.map(book => {
+			let li = document.createElement('li')
+			li.innerHTML = `${book.title}`
+
+			content.appendChild(li)
+		})
+		
+
+		// let p = document.createElement('p')
+		// p.innerHTML = `${this.bookSummary}`
+		
+		// content.appendChild(p)
 
 		div.appendChild(content)
 
