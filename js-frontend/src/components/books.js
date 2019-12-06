@@ -85,11 +85,11 @@ class Books {
 
 		const title = this.bookTitle.value
 		const summary = this.bookSummary.value
-		const name = this.bookAuthor.value
+		const authorName = this.bookAuthor.value
 		const genreName = this.bookGenre.value
 
-		this.adapter.createBook(title, summary, name, genreName).then(book => {
-			this.books.push(new Book(book))
+		this.adapter.createBook(title, summary, authorName, genreName).then(book => {
+			this.books.push(new Book(book.data))
 			this.bookTitle.value = ''
 			this.bookSummary.value = ''
 			this.bookAuthor.value = ''
