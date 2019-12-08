@@ -5,6 +5,7 @@ class Books {
 		this.initBindEventListeners()
 		this.fetchAndLoadBooks()
 		this.authors = new Authors()
+		this.genres = new Genres()
 	}
 
 	initBindEventListeners() {
@@ -105,7 +106,7 @@ class Books {
 		if (selectFilter === "author") {
 			this.authors.renderAuthors()
 		} else if (selectFilter === "genre") {
-					
+			this.genres.renderGenres()
 		} else if (selectFilter === "books") {
 			this.renderBooks()
 		}
