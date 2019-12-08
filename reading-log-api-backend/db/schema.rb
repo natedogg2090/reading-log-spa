@@ -22,9 +22,11 @@ ActiveRecord::Schema.define(version: 2019_12_03_185750) do
     t.string "title"
     t.text "summary"
     t.integer "author_id"
+    t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_books_on_author_id"
+    t.index ["genre_id"], name: "index_books_on_genre_id"
   end
 
   create_table "genres", force: :cascade do |t|

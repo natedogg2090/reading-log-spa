@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
   belongs_to :author
-  has_many :genres
+  belongs_to :genre
 
 end
