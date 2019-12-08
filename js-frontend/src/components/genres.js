@@ -8,12 +8,11 @@ class Genres {
 	fetchGenres() {
 		this.adapter
 		.getGenres()
-		.then(genre => {
-			genres.data.forEach(author => this.genres.push(new Genre(genre)))
+		.then(genres => {
+			genres.data.forEach(genre => this.genres.push(new Genre(genre)))
 		})
 		.then(() => {
-			// this.sortGenres()
-			console.log(this.genres)
+			this.sortGenres()
 		})
 	}
 
