@@ -17,7 +17,7 @@ class Api::V1::BooksController < ApplicationController
     genre = Genre.find_or_create_by(:name => params[:genre][:name])
 
     book.author_id = author.id
-    book.genre_id = @genre.id
+    book.genre_id = genre.id
 
     if book.save
       render json: BookSerializer.new(book).serialized_json, status: 200
