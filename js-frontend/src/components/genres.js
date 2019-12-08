@@ -33,4 +33,11 @@ class Genres {
 
 		})
 	}
+
+	renderGenres() {
+		let booksContainer = document.getElementById('books-container')
+		booksContainer.innerHTML = ''
+
+		this.genres.map(genre => booksContainer.appendChild(genre.renderGenre()))
+	}
 }
