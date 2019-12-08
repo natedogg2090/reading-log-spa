@@ -32,6 +32,16 @@
 	overflow: hidden;
 }
 
+.container #books-container .single-genre {
+	margin-top: 12px;
+	border-color: black;
+	border: 1px solid;
+	position: relative;
+	border-radius: 1px;
+	width: 98%;
+	overflow: hidden;
+}
+
 .container #books-container .single-book .content {
 	float: right;
 	text-align: left;
@@ -41,6 +51,14 @@
 }
 
 .container #books-container .single-author .content {
+	float: right;
+	text-align: left;
+    width: calc(100% - 75px);
+    padding: calc(1vw + 7px) 9px;
+    padding-bottom: 110px
+}
+
+.container #books-container .single-genre .content {
 	float: right;
 	text-align: left;
     width: calc(100% - 75px);
