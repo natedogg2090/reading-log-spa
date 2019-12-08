@@ -19,17 +19,27 @@ ninety = Book.new(:title => "90 percent mental", :summary => "Peak performance a
 red = Book.new(:title => "Red Notice", :summary => "What it's like to go toe-to-toe with Vladimir Putin in post Soviet Russia")
 death = Book.new(:title => "Death's End", :summary => "The fate of the galaxy")
 
+sci_fi = Genre.create(:name => "Sci Fi")
+non_fiction = Genre.create(:name => "Non Fiction")
+fiction = Genre.create(:name => "Fiction")
+personal = Genre.create(:name => "Personal")
+
 blowout.author_id = maddow.id
+blowout.genre_id = non_fiction.id
 blowout.save
 
 range.author_id = ep.id
+range.genre_id = personal.id
 range.save
 
 ninety.author_id = tewks.id
+ninety.genre_id = personal.id
 ninety.save
 
 red.author_id = bb.id
+red.genre_id = non_fiction.id
 red.save
 
 death.author_id = liu.id
+death.genre_id = sci_fi.id
 death.save
