@@ -20,6 +20,7 @@
 	border-radius: 1px;
 	width: 98%;
 	overflow: hidden;
+	cursor: pointer;
 }
 
 .container #books-container .single-author {
