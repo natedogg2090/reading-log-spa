@@ -46,7 +46,7 @@
 	float: right;
 	text-align: left;
     width: calc(100% - 75px);
-    padding: calc(1vw + 7px) 9px;
+    padding: calc(1vw + 7px);
     padding-bottom: 110px
 }
 
