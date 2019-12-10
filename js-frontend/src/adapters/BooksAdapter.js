@@ -29,4 +29,8 @@ class BooksAdapter {
 			body: JSON.stringify({ book, author, genre })
 		}).then(res => res.json())
 	}
+
+	showBook(id) {
+		return fetch(this.baseUrl + `/${id}`).then(res => res.json())
+	}
 }
