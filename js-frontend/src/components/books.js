@@ -106,26 +106,35 @@ class Books {
 	}
 
 	showBook(e) {
+		// refactor...this is doing more than just showing the book
 		this.booksContainer.innerHTML = ''
 
-		let eventArr = e.path
+		let div = e.path.filter(node => node.className === 'single-book')
 
-		let author = eventArr.find(node => node.className === 'author-id')
+		let b = this.books.find(oneBook => oneBook.id === div[0].id)
 
-		if (author) {
-			let auth = this.authors.authors.find(auth => auth.id === author.id)
+		this.booksContainer.appendChild(b.renderBook())
 
-			this.authors.showAuthor(auth)
+		this.booksContainer.appendChild(this.renderNav())
 
-		} else {
-			let div = eventArr.filter(node => node.className === 'single-book')
+		// let eventArr = e.path
 
-			let b = this.books.find(oneBook => oneBook.id === div[0].id)
+		// let author = eventArr.find(node => node.className === 'author-id')
 
-			this.booksContainer.appendChild(b.renderBook())
+		// if (author) {
+		// 	let auth = this.authors.authors.find(auth => auth.id === author.id)
 
-			this.booksContainer.appendChild(this.renderNav())
-		}
+		// 	this.authors.showAuthor(auth)
+
+		// } else {
+		// 	let div = eventArr.filter(node => node.className === 'single-book')
+
+		// 	let b = this.books.find(oneBook => oneBook.id === div[0].id)
+
+		// 	this.booksContainer.appendChild(b.renderBook())
+
+		// 	this.booksContainer.appendChild(this.renderNav())
+		// }
 
 	}
 
