@@ -27,6 +27,12 @@ class Books {
 			book.addEventListener('click', this.showBook.bind(this))
 		}
 
+		// let btn = document.querySelectorAll('button')
+		
+		// for (let b of btn) {
+		// 	b.addEventListener('click', () => {console.log('hi')})
+		// }
+
 	}
 
 	fetchAndLoadBooks() {
@@ -101,9 +107,11 @@ class Books {
 
 	showBook(e) {
 
+		let div = e.path.filter(node => node.className === 'single-book')
+
 		this.booksContainer.innerHTML = ''
 
-		let b = this.books.find(oneBook => oneBook.id === e.target.id)
+		let b = this.books.find(oneBook => oneBook.id === div[0].id)
 
 		this.booksContainer.appendChild(b.renderBook())
 
