@@ -36,9 +36,18 @@ class Authors {
 
 	renderAuthors() {
 		let booksContainer = document.getElementById('books-container')
+
 		booksContainer.innerHTML = ''
 
 		this.authors.map(author => booksContainer.appendChild(author.renderAuthor()))
+	}
+
+	showAuthor(auth) {
+		let booksContainer = document.getElementById('books-container')
+		
+		booksContainer.innerHTML = ''
+
+		booksContainer.appendChild(auth.renderAuthor())
 	}
 
 }

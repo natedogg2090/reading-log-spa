@@ -36,4 +36,5 @@ class Author {
 
 		return div
 	}
+
 }

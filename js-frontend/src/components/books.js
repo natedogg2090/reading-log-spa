@@ -106,16 +106,26 @@ class Books {
 	}
 
 	showBook(e) {
-
-		let div = e.path.filter(node => node.className === 'single-book')
-
 		this.booksContainer.innerHTML = ''
 
-		let b = this.books.find(oneBook => oneBook.id === div[0].id)
+		let eventArr = e.path
 
-		this.booksContainer.appendChild(b.renderBook())
+		let author = eventArr.find(node => node.className === 'author-id')
 
-		this.booksContainer.appendChild(this.renderNav())
+		if (author) {
+			let auth = this.authors.authors.find(auth => auth.id === author.id)
+
+			this.authors.showAuthor(auth)
+
+		} else {
+			let div = eventArr.filter(node => node.className === 'single-book')
+
+			let b = this.books.find(oneBook => oneBook.id === div[0].id)
+
+			this.booksContainer.appendChild(b.renderBook())
+
+			this.booksContainer.appendChild(this.renderNav())
+		}
 
 	}
 

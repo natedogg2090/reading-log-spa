@@ -19,6 +19,7 @@ class Book {
 		header.innerHTML = `${this.title}`
 
 		let authorDiv = document.createElement('div')
+		authorDiv.setAttribute('class', 'author-id')
 		authorDiv.setAttribute('id', `${this.author.id}`)
 
 		let authorName = document.createElement('h4')
