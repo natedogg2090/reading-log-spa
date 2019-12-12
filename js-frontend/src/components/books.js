@@ -21,10 +21,6 @@ class Books {
 	}
 
 	listen() {
-		// for (let book of this.bookId) {
-		// 	book.addEventListener('click', this.bookClick())
-		// }
-
 		this.booksContainer.addEventListener('click', this.showBook.bind(this))
 
 	}
@@ -99,7 +95,24 @@ class Books {
 	}
 
 	showBook(e) {
-		this.adapter.showBook(e.target.id).then(book => console.log(book))
 
+		this.booksContainer.innerHTML = ''
+
+		let b = this.books.find(oneBook => oneBook.id === e.target.id)
+
+		this.booksContainer.appendChild(b.renderBook())
+
+		this.booksContainer.appendChild(this.renderNav())
+
+	}
+
+	renderNav() {
+		let btn = document.createElement('button')
+		btn.setAttribute('class', "show-all-books")
+		btn.innerHTML = "All Books"
+
+		btn.addEventListener('click', this.renderBooks.bind(this))
+
+		return btn
 	}
 }
