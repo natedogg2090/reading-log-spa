@@ -54,7 +54,7 @@
 .container #books-container .single-book h4{
 	float: right;
 	text-align: left;
-    /*width: calc(100% - 75px);*/
+    width: calc(100% - 75px);
     padding: calc(1vw + 7px) 9px;
     padding-bottom: 110px
 }
@@ -77,25 +77,26 @@
 
 .container #books-container .single-book .content h3 {
 	font-family: helvetica;
+	text-align: left;
 }
 
-.container #books-container .single-book h4 a {
-	bottom: 90px;
-	left: 72px;
+.container #books-container .single-book h4 {
+	top: 50px;
+	/*left: 72px;*/
 	font-size: 17px
 }
 
 .container #books-container .single-book h4 {
-    font-size: 14px;
+    font-size: 17px;
     margin-left: 0px;
     max-width: 80%;
     padding: 0px;
     font-weight: 500;
     display: inline-block;
-    left: 62px;
+    left: 55px;
     position: absolute;
-    bottom: 80px;
-    white-space: nowrap;
+    /*bottom: 80px;*/
+    /*white-space: nowrap;*/
     overflow: hidden;
     text-overflow: ellipsis
 }
@@ -107,13 +108,13 @@
     display: inline-block;
     max-width: 76%;
     z-index: 5;
-    left: 62px;
+    left: 55px;
     overflow: hidden;
     overflow-wrap: wrap;
 }
 
 .container #books-container .single-book .book-summary {
-	top: 70px;
+	top: 75px;
 	text-align: left;
 	font-size: 16px
 }
