@@ -21,7 +21,11 @@ class Books {
 	}
 
 	listen() {
-		this.booksContainer.addEventListener('click', this.showBook.bind(this))
+		let divItems = document.getElementsByClassName('single-book')
+
+		for (let book of divItems) {
+			book.addEventListener('click', this.showBook.bind(this))
+		}
 
 	}
 
@@ -111,7 +115,7 @@ class Books {
 		btn.setAttribute('class', "show-all-books")
 		btn.innerHTML = "All Books"
 
-		btn.addEventListener('click', this.renderBooks.bind(this))
+		btn.addEventListener('click', () => {this.renderBooks()})
 
 		return btn
 	}
