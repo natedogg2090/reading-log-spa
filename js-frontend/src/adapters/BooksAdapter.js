@@ -30,7 +30,4 @@ class BooksAdapter {
 		}).then(res => res.json())
 	}
 
-	showBook(id) {
-		return fetch(this.baseUrl + `/${id}`).then(res => res.json())
-	}
 }
