@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_185750) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.text "summary"
+    t.boolean "complete", default: false
     t.integer "author_id"
     t.integer "genre_id"
     t.datetime "created_at", null: false
