@@ -3,6 +3,7 @@ class Book {
 		this.id = bookJSON.id
 		this.title = bookJSON.attributes.title
 		this.summary = bookJSON.attributes.summary
+		this.complete = bookJSON.attributes.complete
 		this.author = bookJSON.attributes.author
 	}
 
@@ -11,6 +12,15 @@ class Book {
 		let div = document.createElement('div')
 		div.setAttribute('class', `single-book`)
 		div.setAttribute('id', `${this.id}`)
+
+		let input = document.createElement('input')
+		input.setAttribute('type', 'checkbox')
+		input.setAttribute('id', `${this.id}`)
+		input.setAttribute('value', `${this.title}`)
+		if (this.complete === true) {
+			input.setAttribute('checked', 'checked')
+		}
+		div.appendChild(input)
 
 		let content = document.createElement('div')
 		content.setAttribute('class', 'content')
