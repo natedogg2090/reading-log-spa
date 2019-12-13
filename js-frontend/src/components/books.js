@@ -21,10 +21,16 @@ class Books {
 	}
 
 	listen() {
-		let divItems = document.getElementsByClassName('single-book')
+		let divItems = document.getElementsByClassName('content')
 
 		for (let book of divItems) {
 			book.addEventListener('click', this.showBook.bind(this))
+		}
+
+		let input = document.querySelectorAll('input[type="checkbox"]')
+
+		for (let checkbox of input) {
+			checkbox.addEventListener('change', this.updateBook.bind(this))
 		}
 
 	}
@@ -134,5 +140,13 @@ class Books {
 		
 		this.authors.showAuthor(author)
 
+	}
+
+	updateBook(e) {
+
+		let checked = e.target.checked
+		let id = e.target.id
+
+		this.adapter.updateBook(id, checked)
 	}
 }
