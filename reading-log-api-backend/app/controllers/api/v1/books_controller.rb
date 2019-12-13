@@ -20,14 +20,21 @@ class Api::V1::BooksController < ApplicationController
     book.genre_id = genre.id
 
     if book.save
-      render json: BookSerializer.new(book).serialized_json, status: 200
+      render json: BookSerializer.new(book), status: 200
     end
+  end
+
+  def update
+    book = Book.find(params[:id])
+    book.update(book_params)
+
+    render json: BookSerializer.new(book), status: 200
   end
 
   private
 
   def book_params
-    params.require(:book).permit(:title, :summary, :author_id, :genre_id)
+    params.require(:book).permit(:title, :summary, :author_id, :genre_id, :complete)
   end
 
 end
