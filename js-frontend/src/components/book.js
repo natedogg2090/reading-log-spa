@@ -14,13 +14,16 @@ class Book {
 		div.setAttribute('id', `${this.id}`)
 
 		let input = document.createElement('input')
+		let inputDiv = document.createElement('div')
 		input.setAttribute('type', 'checkbox')
 		input.setAttribute('id', `${this.id}`)
 		input.setAttribute('value', `${this.title}`)
 		if (this.complete === true) {
 			input.setAttribute('checked', 'checked')
 		}
-		div.appendChild(input)
+		inputDiv.appendChild(input)
+		div.appendChild(inputDiv)
+
 
 		let content = document.createElement('div')
 		content.setAttribute('class', 'content')
@@ -46,11 +49,12 @@ class Book {
 		p.innerHTML = `${this.summary}`
 
 		content.appendChild(header)
-		div.appendChild(content)
+		// div.appendChild(content)
 		authorDiv.appendChild(authorName)
-		div.appendChild(authorDiv)
+		content.appendChild(authorDiv)
 		sumDiv.appendChild(p)
-		div.appendChild(sumDiv)
+		content.appendChild(sumDiv)
+		div.appendChild(content)
 
 		return div
 	}
