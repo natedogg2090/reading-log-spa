@@ -21,7 +21,7 @@ class Books {
 	}
 
 	listen() {
-		let divItems = document.getElementsByClassName('single-book')
+		let divItems = document.getElementsByClassName('content')
 
 		for (let book of divItems) {
 			book.addEventListener('click', this.showBook.bind(this))
@@ -109,13 +109,13 @@ class Books {
 		e.preventDefault()
 
 		if (e.target.nodeName === "A") {
-			this.showAuthor(e.target.href.slice(-1))
+			this.findAuthor(e.target.href.slice(-1))
 		} else {
 			this.booksContainer.innerHTML = ''
 
-			let div = e.path.filter(node => node.className === 'single-book')
+			let div = e.path.find(book => book.className === 'single-book')
 
-			let b = this.books.find(oneBook => oneBook.id === div[0].id)
+			let b = this.books.find(oneBook => oneBook.id === div.id)
 
 			this.booksContainer.appendChild(b.renderBook())
 
@@ -134,11 +134,11 @@ class Books {
 		return btn
 	}
 
-	showAuthor(id) {
+	findAuthor(id) {
 		
 		let author = this.authors.authors.find(auth => auth.id === id)
 		
-		this.authors.showAuthor(author)
+		this.authors.showAuthorFromBooks(author)
 
 	}
 
@@ -149,4 +149,5 @@ class Books {
 
 		this.adapter.updateBook(id, checked)
 	}
+
 }
