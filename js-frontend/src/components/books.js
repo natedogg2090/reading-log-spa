@@ -27,12 +27,6 @@ class Books {
 			book.addEventListener('click', this.showBook.bind(this))
 		}
 
-		// let btn = document.querySelectorAll('button')
-		
-		// for (let b of btn) {
-		// 	b.addEventListener('click', () => {console.log('hi')})
-		// }
-
 	}
 
 	fetchAndLoadBooks() {
@@ -106,35 +100,21 @@ class Books {
 	}
 
 	showBook(e) {
-		// refactor...this is doing more than just showing the book
-		this.booksContainer.innerHTML = ''
+		e.preventDefault()
 
-		let div = e.path.filter(node => node.className === 'single-book')
+		if (e.target.nodeName === "A") {
+			this.showAuthor(e.target.href.slice(-1))
+		} else {
+			this.booksContainer.innerHTML = ''
 
-		let b = this.books.find(oneBook => oneBook.id === div[0].id)
+			let div = e.path.filter(node => node.className === 'single-book')
 
-		this.booksContainer.appendChild(b.renderBook())
+			let b = this.books.find(oneBook => oneBook.id === div[0].id)
 
-		this.booksContainer.appendChild(this.renderNav())
+			this.booksContainer.appendChild(b.renderBook())
 
-		// let eventArr = e.path
-
-		// let author = eventArr.find(node => node.className === 'author-id')
-
-		// if (author) {
-		// 	let auth = this.authors.authors.find(auth => auth.id === author.id)
-
-		// 	this.authors.showAuthor(auth)
-
-		// } else {
-		// 	let div = eventArr.filter(node => node.className === 'single-book')
-
-		// 	let b = this.books.find(oneBook => oneBook.id === div[0].id)
-
-		// 	this.booksContainer.appendChild(b.renderBook())
-
-		// 	this.booksContainer.appendChild(this.renderNav())
-		// }
+			this.booksContainer.appendChild(this.renderNav())
+		}
 
 	}
 
@@ -146,5 +126,13 @@ class Books {
 		btn.addEventListener('click', () => {this.renderBooks()})
 
 		return btn
+	}
+
+	showAuthor(id) {
+		
+		let author = this.authors.authors.find(auth => auth.id === id)
+		
+		this.authors.showAuthor(author)
+
 	}
 }

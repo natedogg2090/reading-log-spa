@@ -23,7 +23,12 @@ class Book {
 		authorDiv.setAttribute('id', `${this.author.id}`)
 
 		let authorName = document.createElement('h4')
-		authorName.innerHTML = `${this.author.name}`
+		// authorName.innerHTML = `${this.author.name}`
+
+		let a = document.createElement('a')
+		a.setAttribute('href', `${this.author.id}`)
+		a.innerHTML = `${this.author.name}`
+		authorName.appendChild(a)
 
 		let sumDiv = document.createElement('div')
 		sumDiv.setAttribute('class', 'book-summary')
