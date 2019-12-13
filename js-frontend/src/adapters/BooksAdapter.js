@@ -30,4 +30,19 @@ class BooksAdapter {
 		}).then(res => res.json())
 	}
 
+	updateBook(id, checked) {
+		const book = {
+			id: id,
+			complete: checked
+		}
+
+		return fetch(this.baseUrl, {
+			method: 'PATCH',
+			headers: {
+				'content-type': 'application/json',
+			},
+			body: JSON.stringify({ book }).then(res => res.json())
+		})
+	}
+
 }
