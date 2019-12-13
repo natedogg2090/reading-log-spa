@@ -48,6 +48,18 @@ class Authors {
 		booksContainer.innerHTML = ''
 
 		booksContainer.appendChild(auth.renderAuthor())
+
+		booksContainer.appendChild(this.renderNav())
+	}
+
+	renderNav() {
+		let btn = document.createElement('button')
+		btn.setAttribute('class', "show-all-authors")
+		btn.innerHTML = "All Authors"
+
+		btn.addEventListener('click', () => {this.renderAuthors()})
+
+		return btn
 	}
 
 }
