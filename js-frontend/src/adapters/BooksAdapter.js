@@ -36,13 +36,13 @@ class BooksAdapter {
 			complete: checked
 		}
 
-		return fetch(this.baseUrl, {
+		return fetch(this.baseUrl + `/${book.id}`, {
 			method: 'PATCH',
 			headers: {
 				'content-type': 'application/json',
 			},
-			body: JSON.stringify({ book }).then(res => res.json())
-		})
+			body: JSON.stringify({ book })
+		}).then(res => res.json())
 	}
 
 }
