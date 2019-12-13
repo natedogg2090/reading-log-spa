@@ -21,7 +21,7 @@ class Books {
 	}
 
 	listen() {
-		let divItems = document.getElementsByClassName('content')
+		let divItems = document.getElementsByClassName('single-book')
 
 		for (let book of divItems) {
 			book.addEventListener('click', this.showBook.bind(this))
