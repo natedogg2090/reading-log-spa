@@ -107,12 +107,13 @@ class Books {
 
 	showBook(e) {
 
+		 this.booksContainer.innerHTML = ''
+
 		if (e.target.nodeName === "A") {
 			e.preventDefault()
 			this.showAuthor(e.target.href.slice(-1))
 		} else {
-			this.booksContainer.innerHTML = ''
-			
+
 			this.booksContainer.appendChild(e.target.parentNode)
 			this.booksContainer.appendChild(this.renderNav())
 		}
@@ -132,7 +133,7 @@ class Books {
 	showAuthor(id) {
 		let author = this.authors.authors.find(auth => auth.id === id)
 		
-		this.booksContainer.innerHTML = ''
+		// this.booksContainer.innerHTML = ''
 
 		this.booksContainer.appendChild(author.renderAuthor())
 
