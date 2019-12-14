@@ -106,19 +106,14 @@ class Books {
 	}
 
 	showBook(e) {
-		e.preventDefault()
 
 		if (e.target.nodeName === "A") {
-			this.findAuthor(e.target.href.slice(-1))
+			e.preventDefault()
+			this.showAuthor(e.target.href.slice(-1))
 		} else {
 			this.booksContainer.innerHTML = ''
-
-			let div = e.path.find(book => book.className === 'single-book')
-
-			let b = this.books.find(oneBook => oneBook.id === div.id)
-
-			this.booksContainer.appendChild(b.renderBook())
-
+			
+			this.booksContainer.appendChild(e.target.parentNode)
 			this.booksContainer.appendChild(this.renderNav())
 		}
 
@@ -134,12 +129,14 @@ class Books {
 		return btn
 	}
 
-	findAuthor(id) {
-		
+	showAuthor(id) {
 		let author = this.authors.authors.find(auth => auth.id === id)
 		
-		this.authors.showAuthorFromBooks(author)
+		this.booksContainer.innerHTML = ''
 
+		this.booksContainer.appendChild(author.renderAuthor())
+
+		this.booksContainer.appendChild(this.renderNav())
 	}
 
 	updateBook(e) {
