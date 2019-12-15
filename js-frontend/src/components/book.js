@@ -39,7 +39,9 @@ class Book {
 
 		let a = document.createElement('a')
 		a.setAttribute('href', `${this.author.id}`)
+		a.setAttribute('class', "author")
 		a.innerHTML = `${this.author.name}`
+		// a.addEventListener('click', () => {this.showAuthor()})
 		authorName.appendChild(a)
 
 		let sumDiv = document.createElement('div')
