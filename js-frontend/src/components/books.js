@@ -19,13 +19,10 @@ class Books {
 		this.filterDropdown = document.querySelector('#filter-dropdown')
 		this.filterDropdown.addEventListener('change', this.filterList.bind(this))
 		this.booksContainer.addEventListener('click', this.handleDivClicks.bind(this))
-		// this.booksContainer.addEventListener('click', this.handleDivClick.bind(this), tru)
-		// this.booksContainer.addEventListener('click', this.showAuthor.bind(this))
+
 	}
 
 	handleDivClicks(e) {
-
-		console.log(e)
 
 		let node = e.target.nodeName
 
@@ -35,13 +32,15 @@ class Books {
 			this.renderBooks()
 		} else if (node === "A") {
 			e.preventDefault()
+			this.booksContainer.innerHTML = ''
+
 			if (e.target.className === "author") {
 				this.showAuthor(e.target.href.slice(-1))
 			} else {
 				this.showBook(e.target.href.slice(-1))
 			}
 		} else {
-			let div = e.target.parentNode
+			let div = e.path.find(c => c.className === "single-book")
 
 			this.booksContainer.innerHTML = ''
 			this.booksContainer.appendChild(div)
@@ -127,7 +126,6 @@ class Books {
 	}
 
 	showAuthor(id) {
-		this.booksContainer.innerHTML = ''
 
 		let author = this.authors.authors.find(auth => auth.id === id)
 
@@ -137,7 +135,6 @@ class Books {
 	}
 
 	showBook(id) {
-		this.booksContainer.innerHTML = ''
 
 		let book = this.books.find(book => book.id === id)
 
