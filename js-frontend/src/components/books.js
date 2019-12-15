@@ -18,20 +18,36 @@ class Books {
 		this.bookForm.addEventListener('submit', this.createBook.bind(this)) // bind the this inside Book class
 		this.filterDropdown = document.querySelector('#filter-dropdown')
 		this.filterDropdown.addEventListener('change', this.filterList.bind(this))
+		this.booksContainer.addEventListener('click', this.handleDivClicks.bind(this))
+		// this.booksContainer.addEventListener('click', this.handleDivClick.bind(this), tru)
+		// this.booksContainer.addEventListener('click', this.showAuthor.bind(this))
 	}
 
-	listen() {
-		let divItems = document.getElementsByClassName('content')
+	handleDivClicks(e) {
 
-		for (let book of divItems) {
-			book.addEventListener('click', this.showBook.bind(this))
+		console.log(e)
+
+		let node = e.target.nodeName
+
+		if (node === 'INPUT') {
+			this.updateBook(e)
+		} else if (node === 'BUTTON') {
+			this.renderBooks()
+		} else if (node === "A") {
+			e.preventDefault()
+			if (e.target.className === "author") {
+				this.showAuthor(e.target.href.slice(-1))
+			} else {
+				this.showBook(e.target.href.slice(-1))
+			}
+		} else {
+			let div = e.target.parentNode
+
+			this.booksContainer.innerHTML = ''
+			this.booksContainer.appendChild(div)
+			this.renderNav()
 		}
 
-		let input = document.querySelectorAll('input[type="checkbox"]')
-
-		for (let checkbox of input) {
-			checkbox.addEventListener('change', this.updateBook.bind(this))
-		}
 
 	}
 
@@ -69,9 +85,6 @@ class Books {
 		this.booksContainer.innerHTML = ''
 
 		this.books.map(book => this.booksContainer.appendChild(book.renderBook()))
-
-		this.listen()
-
 	}
 
 	createBook(e) {
@@ -105,39 +118,32 @@ class Books {
 		}
 	}
 
-	showBook(e) {
-
-		 this.booksContainer.innerHTML = ''
-
-		if (e.target.nodeName === "A") {
-			e.preventDefault()
-			this.showAuthor(e.target.href.slice(-1))
-		} else {
-
-			this.booksContainer.appendChild(e.target.parentNode)
-			this.booksContainer.appendChild(this.renderNav())
-		}
-
-	}
-
 	renderNav() {
 		let btn = document.createElement('button')
 		btn.setAttribute('class', "show-all-books")
 		btn.innerHTML = "All Books"
 
-		btn.addEventListener('click', () => {this.renderBooks()})
-
-		return btn
+		this.booksContainer.appendChild(btn)
 	}
 
 	showAuthor(id) {
+		this.booksContainer.innerHTML = ''
+
 		let author = this.authors.authors.find(auth => auth.id === id)
-		
-		// this.booksContainer.innerHTML = ''
 
 		this.booksContainer.appendChild(author.renderAuthor())
 
-		this.booksContainer.appendChild(this.renderNav())
+		this.renderNav()
+	}
+
+	showBook(id) {
+		this.booksContainer.innerHTML = ''
+
+		let book = this.books.find(book => book.id === id)
+
+		this.booksContainer.appendChild(book.renderBook())
+
+		this.renderNav()
 	}
 
 	updateBook(e) {
