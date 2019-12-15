@@ -13,12 +13,7 @@ class Authors {
 		})
 		.then(() => {
 			this.sortAuthors()
-			this.bindEventListeners()
 		})
-	}
-
-	bindEventListeners() {
-		this.booksContainer = document.getElementById('books-container')
 	}
 
 	sortAuthors() {
@@ -40,9 +35,11 @@ class Authors {
 	}
 
 	renderAuthors() {
-		this.booksContainer.innerHTML = ''
+		let booksContainer = document.getElementById('books-container')
 
-		this.authors.map(author => this.booksContainer.appendChild(author.renderAuthor()))
+		booksContainer.innerHTML = ''
+
+		this.authors.map(author => booksContainer.appendChild(author.renderAuthor()))
 
 	}
 

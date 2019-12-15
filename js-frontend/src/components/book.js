@@ -18,9 +18,11 @@ class Book {
 		input.setAttribute('type', 'checkbox')
 		input.setAttribute('id', `${this.id}`)
 		input.setAttribute('value', `${this.title}`)
+
 		if (this.complete === true) {
 			input.setAttribute('checked', 'checked')
 		}
+
 		inputDiv.appendChild(input)
 		div.appendChild(inputDiv)
 
@@ -41,7 +43,6 @@ class Book {
 		a.setAttribute('href', `${this.author.id}`)
 		a.setAttribute('class', "author")
 		a.innerHTML = `${this.author.name}`
-		// a.addEventListener('click', () => {this.showAuthor()})
 		authorName.appendChild(a)
 
 		let sumDiv = document.createElement('div')
@@ -51,7 +52,6 @@ class Book {
 		p.innerHTML = `${this.summary}`
 
 		content.appendChild(header)
-		// div.appendChild(content)
 		authorDiv.appendChild(authorName)
 		content.appendChild(authorDiv)
 		sumDiv.appendChild(p)

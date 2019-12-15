@@ -18,11 +18,12 @@ class Books {
 		this.bookForm.addEventListener('submit', this.createBook.bind(this)) // bind the this inside Book class
 		this.filterDropdown = document.querySelector('#filter-dropdown')
 		this.filterDropdown.addEventListener('change', this.filterList.bind(this))
-		this.booksContainer.addEventListener('click', this.handleDivClicks.bind(this))
+		this.booksContainer.addEventListener('click', this.handleDivClick.bind(this))
+		this.singleBook = document.getElementsByClassName('single-book')
 
 	}
 
-	handleDivClicks(e) {
+	handleDivClick(e) {
 
 		let node = e.target.nodeName
 
@@ -46,8 +47,6 @@ class Books {
 			this.booksContainer.appendChild(div)
 			this.renderNav()
 		}
-
-
 	}
 
 	fetchAndLoadBooks() {

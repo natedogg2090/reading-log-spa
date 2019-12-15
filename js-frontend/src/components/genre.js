@@ -2,7 +2,6 @@ class Genre {
 	constructor(genreJSON) {
 		this.name = genreJSON.attributes.name
 		this.booksArray = genreJSON.attributes.books
-		// this.authorArray = genreJSON.attributes.authors
 	}
 
 	renderGenre() {
@@ -20,8 +19,13 @@ class Genre {
 
 		this.booksArray.map(book => {
 			let li = document.createElement('li')
-			li.innerHTML = `${book.title}`
 
+			let a = document.createElement('a')
+			a.setAttribute('href', `${book.id}`)
+			a.setAttribute('class', "genre")
+			a.innerHTML = `${book.title}`
+
+			li.appendChild(a)
 			content.appendChild(li)
 		})
 

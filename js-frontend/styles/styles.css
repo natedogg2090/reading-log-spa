@@ -51,14 +51,6 @@
     padding-bottom: 25%
 }
 
-/*.container #books-container .single-book h4{
-	float: right;
-	text-align: left;
-    width: calc(100% - 75px);
-    padding: calc(1vw + 7px) 9px;
-    padding-bottom: 110px
-}*/
-
 .container #books-container .single-author .content {
 	float: right;
 	text-align: left;
@@ -84,12 +76,6 @@
 	position: absolute;
 }
 
-/*.container #books-container .single-book h4 {
-	top: 50px;
-	left: 72px;
-	font-size: 17px
-}*/
-
 .container #books-container .single-book .content .author-id h4 {
     top: 50px;
     font-size: 17px;
@@ -100,8 +86,6 @@
     display: inline-block;
     left: 55px;
     position: absolute;
-    /*bottom: 80px;*/
-    /*white-space: nowrap;*/
     overflow: hidden;
     text-overflow: ellipsis
 }
@@ -120,10 +104,6 @@
     overflow: hidden;
     overflow-wrap: wrap;
 }
-
-/*.container #books-container .single-book .content .book-summary {
-
-}*/
 
 .container #books-container input[type="checkbox"] {
 	width: 40%;
