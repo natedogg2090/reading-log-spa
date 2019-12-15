@@ -10,6 +10,7 @@ class Author {
 
 		let div = document.createElement('div')
 		div.setAttribute('class', 'single-author')
+		div.setAttribute('id', `${this.id}`)
 
 		let content = document.createElement('div')
 		content.setAttribute('class', 'content')
@@ -21,20 +22,30 @@ class Author {
 
 		this.booksArray.map(book => {
 			let li = document.createElement('li')
-			li.innerHTML = `${book.title}`
+			// li.innerHTML = `${book.title}`
 
+			let a = document.createElement('a')
+			a.setAttribute('href', `${book.id}`)
+			a.setAttribute('class', "book")
+			a.innerHTML = `${book.title}`
+
+			li.appendChild(a)
 			content.appendChild(li)
 		})
-		
-
-		// let p = document.createElement('p')
-		// p.innerHTML = `${this.bookSummary}`
-		
-		// content.appendChild(p)
 
 		div.appendChild(content)
 
 		return div
 	}
+
+	// renderNav() {
+	// 	let btn = document.createElement('button')
+	// 	btn.setAttribute('class', "show-all-authors")
+	// 	btn.innerHTML = "All Authors"
+
+	// 	btn.addEventListener('click', () => {console.log(this)})
+
+	// 	return btn
+	// }
 
 }
