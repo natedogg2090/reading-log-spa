@@ -19,8 +19,9 @@ class Book {
 		input.setAttribute('id', `${this.id}`)
 		input.setAttribute('value', `${this.title}`)
 
-		if (this.complete === true) {
-			input.setAttribute('checked', 'checked')
+		if (this.complete) {
+			input.setAttribute('checked', true)
+			div.setAttribute('style', 'background: grey;')
 		}
 
 		inputDiv.appendChild(input)

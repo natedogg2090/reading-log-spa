@@ -25,13 +25,25 @@ class Books {
 
 	handleDivClick(e) {
 
-		let node = e.target.nodeName
+		let node = e.target
 
-		if (node === 'INPUT') {
+		if (node.nodeName === 'INPUT') {
+
 			this.updateBook(e)
-		} else if (node === 'BUTTON') {
+			let input = document.querySelector(`input[type="checkbox"][id="${node.id}"]`)
+			let singleBook = e.target.offsetParent
+
+			if (!(input.checked)) {
+				input.removeAttribute('checked', false)
+				singleBook.removeAttribute('style', 'background: grey;')
+			} else {
+				input.setAttribute('checked', true)
+				singleBook.setAttribute('style', 'background: grey;')
+			}
+
+		} else if (node.nodeName === 'BUTTON') {
 			this.renderBooks()
-		} else if (node === "A") {
+		} else if (node.nodeName === "A") {
 			e.preventDefault()
 			this.booksContainer.innerHTML = ''
 
