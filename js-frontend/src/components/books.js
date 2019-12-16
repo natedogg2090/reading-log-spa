@@ -108,13 +108,22 @@ class Books {
 		const authorName = this.bookAuthor.value
 		const genreName = this.bookGenre.value
 
-		this.adapter.createBook(title, summary, authorName, genreName).then(book => {
-			this.books.push(new Book(book.data))
-			this.bookTitle.value = ''
-			this.bookSummary.value = ''
-			this.bookAuthor.value = ''
-			this.bookGenre.value = ''
-			this.renderBooks()
+		this.adapter.createBook(title, summary, authorName, genreName)
+		.then(book => {
+			if (book.message) {
+				let p = document.createElement('p')
+				p.setAttribute('class', 'error')
+				p.setAttribute('style', 'color: red;')
+				p.innerHTML = `${book.message}`
+				this.bookForm.appendChild(p)
+			} else {
+				this.books.push(new Book(book.data))
+				this.bookTitle.value = ''
+				this.bookSummary.value = ''
+				this.bookAuthor.value = ''
+				this.bookGenre.value = ''
+				this.renderBooks()
+			}
 		})
 	}
 

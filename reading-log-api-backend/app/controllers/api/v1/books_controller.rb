@@ -21,6 +21,8 @@ class Api::V1::BooksController < ApplicationController
 
     if book.save
       render json: BookSerializer.new(book), status: 200
+    else
+      render json: {status: "error", message: "Please correct form errors."}
     end
   end
 
