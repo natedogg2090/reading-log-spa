@@ -31,6 +31,12 @@ class Api::V1::BooksController < ApplicationController
     render json: BookSerializer.new(book), status: 200
   end
 
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+
+  end
+
   private
 
   def book_params

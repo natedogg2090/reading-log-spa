@@ -45,4 +45,18 @@ class BooksAdapter {
 		}).then(res => res.json())
 	}
 
+	destroyBook(id) {
+		const book = {
+			id: id
+		}
+
+		return fetch(this.baseUrl + `/${book.id}`, {
+			method: 'DELETE',
+			headers: {
+				'content-type': 'application/json',
+			},
+			body: JSON.stringify({ book })
+		})
+	}
+
 }

@@ -13,6 +13,10 @@ class Book {
 		div.setAttribute('class', `single-book`)
 		div.setAttribute('id', `${this.id}`)
 
+		let close = document.createElement('span')
+		close.innerHTML = "X"
+
+
 		let input = document.createElement('input')
 		let inputDiv = document.createElement('div')
 		input.setAttribute('type', 'checkbox')
@@ -52,6 +56,7 @@ class Book {
 		let p = document.createElement('p')
 		p.innerHTML = `${this.summary}`
 
+		div.appendChild(close)
 		content.appendChild(header)
 		authorDiv.appendChild(authorName)
 		content.appendChild(authorDiv)

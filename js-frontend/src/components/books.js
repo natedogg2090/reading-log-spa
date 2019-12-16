@@ -31,7 +31,7 @@ class Books {
 
 			this.updateBook(e)
 			let input = document.querySelector(`input[type="checkbox"][id="${node.id}"]`)
-			let singleBook = e.target.offsetParent
+			let singleBook = node.offsetParent
 
 			if (!(input.checked)) {
 				input.removeAttribute('checked', false)
@@ -52,6 +52,9 @@ class Books {
 			} else {
 				this.showBook(e.target.href.slice(-1))
 			}
+		} else if (node.nodeName === 'SPAN'){
+			this.booksContainer.removeChild(node.offsetParent)
+			this.destroyBook(e)
 		} else {
 			let div = e.path.find(c => c.className === "single-book")
 
@@ -160,6 +163,13 @@ class Books {
 		let id = e.target.id
 
 		this.adapter.updateBook(id, checked)
+	}
+
+	destroyBook(e) {
+
+		let id = e.target.parentElement.id
+
+		this.adapter.destroyBook(id)
 	}
 
 }
