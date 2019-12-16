@@ -35,10 +35,10 @@ class Books {
 
 			if (!(input.checked)) {
 				input.removeAttribute('checked', false)
-				singleBook.removeAttribute('style', 'background: grey;')
+				singleBook.removeAttribute('style', 'background: lightgray;')
 			} else {
 				input.setAttribute('checked', true)
-				singleBook.setAttribute('style', 'background: grey;')
+				singleBook.setAttribute('style', 'background: lightgray;')
 			}
 
 		} else if (node.nodeName === 'BUTTON') {

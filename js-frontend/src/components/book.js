@@ -21,7 +21,7 @@ class Book {
 
 		if (this.complete) {
 			input.setAttribute('checked', true)
-			div.setAttribute('style', 'background: grey;')
+			div.setAttribute('style', 'background: lightgray;')
 		}
 
 		inputDiv.appendChild(input)
