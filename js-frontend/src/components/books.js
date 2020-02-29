@@ -68,7 +68,7 @@ class Books {
 		this.adapter
 		.getBooks()
 		.then(books => {
-			books.data.forEach(book => this.books.push(new Book(book))) // pushing a new book instance into the array
+			books.data.forEach(book => this.books.push(new Book(book)))
 		})
 		.then(() => {
 			this.sortBooks()
@@ -138,6 +138,7 @@ class Books {
 		} else if (selectFilter === "books") {
 			this.renderBooks()
 		}
+
 	}
 
 	renderNav() {
