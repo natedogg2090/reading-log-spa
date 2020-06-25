@@ -29,7 +29,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors'
 gem 'pry'
 gem 'fast_jsonapi'
-gem 'rack', '2.0.8'
+gem 'rack', '2.1.4'
 gem 'nokogiri', '1.10.8'
 
 group :development, :test do
